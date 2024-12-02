@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\Logger\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CmlLib.Core" Version="3.3.7" />
+    <PackageReference Include="MvvmCross" Version="9.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Resources\Images\NewsBackGround.jpg" />
+    <Resource Include="Views\Resources\Images\NewsBackGround.jpg" />
+    <None Remove="Views\Resources\Images\Ava.jpg" />
+    <Resource Include="Views\Resources\Images\Ava.jpg" />
+    <None Remove="Views\Resources\Images\Cat.jpg" />
+    <Resource Include="Views\Resources\Images\Cat.jpg" />
+    <None Remove="Views\Resources\Images\Coal.jpg" />
+    <Resource Include="Views\Resources\Images\Coal.jpg" />
+    <None Remove="Views\Resources\Images\Diamond.jpg" />
+    <Resource Include="Views\Resources\Images\Diamond.jpg" />
+    <None Remove="Views\Resources\Images\Dog.jpg" />
+    <Resource Include="Views\Resources\Images\Dog.jpg" />
+    <None Remove="Views\Resources\Images\Dragon.jpg" />
+    <Resource Include="Views\Resources\Images\Dragon.jpg" />
+    <None Remove="Views\Resources\Images\Kirk.jpg" />
+    <Resource Include="Views\Resources\Images\Kirk.jpg" />
+    <None Remove="Views\Resources\Images\Mech.jpg" />
+    <Resource Include="Views\Resources\Images\Mech.jpg" />
+    <None Remove="Views\Resources\Images\Bron.jpg" />
+    <Resource Include="Views\Resources\Images\Bron.jpg" />
+    <None Remove="Views\Resources\Images\Dern.png" />
+    <Resource Include="Views\Resources\Images\Dern.png" />
+    <None Remove="Views\Resources\Images\Dern.jpg" />
+    <Resource Include="Views\Resources\Images\Dern.jpg" />
+  </ItemGroup>
+
+</Project>

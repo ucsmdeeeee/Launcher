@@ -1,0 +1,136 @@
+﻿<Page x:Class="WpfApp3.Views.Pages.DashboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:WpfApp3.Views.Pages"
+      xmlns:vm="clr-namespace:WpfApp3.ViewModels"
+      xmlns:components="clr-namespace:WpfApp3.Views.Components"
+      mc:Ignorable="d"
+      Background="#1E1E1E"
+      Title="DashboardPage" 
+      Height="1024" Width="1440">
+    
+    <Page.DataContext>
+        <vm:DashboardViewModel />
+    </Page.DataContext>
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="95" />
+            <RowDefinition Height="110" />
+            <RowDefinition Height="709" />
+            <RowDefinition Height="110" />
+        </Grid.RowDefinitions>
+            
+        <Border Grid.Row="0" Style="{StaticResource HatterBorderStyle}"></Border>
+        <Border Grid.Row="0" Style="{StaticResource HatterPanelShadow}"></Border>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="460"/>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0" Text="IThub" Foreground="White" Margin="40,30,0,0" FontSize="25" FontFamily="Fonts/#Montserrat" />
+            <TextBlock Grid.Column="0" Text="Launch" Foreground="#11B670" Margin="105,30,0,0" FontSize="25" FontFamily="Fonts/#Montserrat" />
+            
+            <Button Grid.Column="1" Click="LauncherShowButton_Click" Content="Лаунчер" Style="{StaticResource MenuButtonStyle}" />
+            <Button Grid.Column="2" Click="ShopShowButton_Click" Content="Магазин" Style="{StaticResource MenuButtonStyle}" />
+            <Button Grid.Column="3" Click="DiscordOpenButton_Click" Content="Дискорд" Style="{StaticResource MenuButtonStyle}" />
+            <Button Grid.Column="5" Click="SettingsOpenButton_Click" Content="&#x2699;" Style="{StaticResource SymbolButtonStyle}" />
+            <Button Grid.Column="6" Click="LauncherHideButton_Click" Content="&#10134;" Style="{StaticResource SymbolButtonStyle}" />
+            <Button Grid.Column="7" Click="LauncherCloseButton_Click" Content="&#x2716;" Style="{StaticResource SymbolButtonStyle}" />
+            
+        </Grid>
+        
+        
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="920"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            
+            <Border Grid.Column="1" Style="{StaticResource PanelBorderStyle}"></Border>
+            <Border Grid.Column="1" Style="{StaticResource PanelShadow}"></Border>
+            
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="205"/>
+                    <RowDefinition Height="19"/>
+                    <RowDefinition Height="405"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                
+                <Border Grid.Row="1" Style="{StaticResource CenterBorderStyle}"></Border>
+                <TextBlock Grid.Row="1" Text="Сервер" Foreground="#858585" FontSize="16" FontFamily="Fonts/#Montserrat" Margin="40,20,0,0"></TextBlock>
+                <TextBlock Grid.Row="1" Text="Distant Server IThub" Foreground="#FFFFFF" FontSize="25" FontFamily="Fonts/#Montserrat" Margin="40,50,0,0"></TextBlock>
+                <TextBlock Grid.Row="1" Text="300" Foreground="#FFFFFF" FontSize="25" FontFamily="Fonts/#Montserrat" Margin="255,150,0,0"></TextBlock>
+                <Border Grid.Row="1" Height="13" Background="#858585" CornerRadius="7" Margin="40,70,40,0"> </Border>
+                <Border Grid.Row="1" Height="13" Background="#11B670" CornerRadius="7" Margin="40,70,120,0"> </Border>
+                <TextBlock Grid.Row="1" Text="Онлайн на сервере" Foreground="#858585" FontSize="16" FontFamily="Fonts/#Montserrat" Margin="40,100,0,0"></TextBlock>
+                <TextBlock Grid.Row="1" Text="0" Foreground="#858585" FontSize="16" FontFamily="Fonts/#Montserrat" Margin="40,150,0,0"></TextBlock>
+                <TextBlock Grid.Row="1" Text="400" Foreground="#858585" FontSize="16" FontFamily="Fonts/#Montserrat" Margin="340,150,0,0"></TextBlock>
+
+                <components:FriendsListComponent Grid.Row="3" FriendsList="{Binding FriendsList}"></components:FriendsListComponent>
+                <TextBlock Grid.Row="3" Text="Друзья" Foreground="#FFFFFF" FontSize="25" FontFamily="Fonts/#Montserrat" Margin="40,30,0,0"></TextBlock>
+
+                
+                
+            </Grid>
+            
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="569" />
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                
+                <Border Grid.Row="0" Style="{StaticResource PanelBorderStyle}"></Border>
+                <Border Grid.Row="2" Style="{StaticResource PanelBorderStyle}"></Border>
+                <Border Grid.Row="0" Style="{StaticResource PanelShadow}"></Border>
+                <Border Grid.Row="2" Style="{StaticResource PanelShadow}"></Border>
+                <Border Grid.Row="0" Style="{StaticResource ImageBorderStyle}"></Border> 
+                <TextBlock Grid.Row="0" Text="Новости" Margin="50,70,0,0" FontSize="36" FontFamily="Fonts/#Montserrat" Foreground="White" FontWeight="Bold"></TextBlock>
+                <TextBlock Grid.Row="0" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida malesuada lectus, vel tempor turpis sodales vitae. Fusce porttitor quam sapien, id imperdiet ante auctor vitae. Pellentesque vitae odio diam. Nunc elementum risus sed porta faucibus. Maecenas nibh tortor, blandit id mollis sit amet, venenatis nec ipsum. Nullam tincidunt congue leo, at pharetra neque vehicula eu. " Margin="50,120,130,140" FontSize="25" FontFamily="Fonts/#Montserrat" Foreground="White" TextWrapping="Wrap"></TextBlock>
+                <Button Grid.Row="0" Content="Подробнее &#8594;" Style="{StaticResource DefaultButtonStyle}"></Button>
+                
+                
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <components:AccountComponent Grid.Column="1" Account="{Binding Account}"></components:AccountComponent>
+                    <TextBlock Grid.Column="1" Text="Аккаунт" Foreground="#858585" FontSize="16" FontFamily="Fonts/#Montserrat" Margin="70,18,0,0"></TextBlock>
+                    <Border Grid.Column="3" Style="{StaticResource InfoBorderStyle}"></Border>
+                    <TextBlock Grid.Column="3" Text="Версия" Foreground="#858585" FontSize="16" FontFamily="Fonts/#Montserrat" Margin="20,18,0,0"></TextBlock>
+                    <TextBlock Grid.Column="3" Text="Optifine 1.19.2" Foreground="#FFFFFF" FontSize="25" FontFamily="Fonts/#Montserrat" Margin="20,40,0,0"></TextBlock>
+                    <Button Grid.Column="5" Click="StartGameButton_Click" Content="Войти в игру" Style="{StaticResource GameButtonStyle}"></Button>
+                    
+                </Grid>
+                
+            </Grid>
+        </Grid>
+        
+        
+    </Grid>
+</Page>

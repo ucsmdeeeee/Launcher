@@ -1,0 +1,109 @@
+﻿<Page x:Class="WpfApp3.Views.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:WpfApp3.Views.Pages"
+      xmlns:vm="clr-namespace:WpfApp3.ViewModels"
+      xmlns:components="clr-namespace:WpfApp3.Views.Components"
+      mc:Ignorable="d"
+      Background="#1E1E1E"
+      Title="Settings" 
+      Height="1024" Width="600">
+    
+    <Page.DataContext>
+        <vm:SettingsViewModel />
+    </Page.DataContext>
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="95" />
+            <RowDefinition Height="110" />
+            <RowDefinition Height="709" />
+            <RowDefinition Height="110" />
+        </Grid.RowDefinitions>
+            
+        <Border Grid.Row="0" Style="{StaticResource HatterBorderStyle}"></Border>
+        <Border Grid.Row="0" Style="{StaticResource HatterPanelShadow}"></Border>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="540"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0" Text="IThub" Foreground="White" Margin="40,30,0,0" FontSize="25" FontFamily="Fonts/#Montserrat" />
+            <TextBlock Grid.Column="0" Text="Launch" Foreground="#11B670" Margin="105,30,0,0" FontSize="25" FontFamily="Fonts/#Montserrat" />
+            <Button Grid.Column="1" Click="LauncherShowButton_Click" Content="&#x2716;" Style="{StaticResource SymbolButtonStyle}" />
+            
+        </Grid>
+        
+        
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="560"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            
+            <Border Grid.Column="1" Style="{StaticResource PanelBorderStyle}"></Border>
+            <Border Grid.Column="1" Style="{StaticResource PanelShadow}"></Border>
+            
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="205"/>
+                    <RowDefinition Height="19"/>
+                    <RowDefinition Height="405"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="1">
+                    <Slider Grid.Row="0" Minimum="0" Maximum="16384" Value="{Binding SelectedRAM}" 
+            Margin="0,55,0,0"
+            Height="20"
+            Width="320"
+            Background="#858585" 
+            BorderBrush="#858585"
+            TickFrequency="1024"
+            IsSnapToTickEnabled="True"
+            ValueChanged="Slider_ValueChanged">
+        <Slider.Template>
+            <ControlTemplate TargetType="Slider">
+                <Grid>
+                    <Rectangle x:Name="PART_SelectionRange" Height="13" Fill="#11B670" RadiusX="7" RadiusY="7"/>
+                    <Rectangle x:Name="PART_RemainingRange" Height="13" Fill="#858585" RadiusX="7" RadiusY="7"/>
+                    <TickBar x:Name="BottomTick" Height="4" TickFrequency="1024" Placement="Bottom" Fill="#858585"/>
+                    <Track x:Name="PART_Track">
+                        <Track.DecreaseRepeatButton>
+                            <RepeatButton Style="{StaticResource RepeatButtonTransparent}" Command="{x:Static Slider.DecreaseLarge}" />
+                        </Track.DecreaseRepeatButton>
+                        <Track.Thumb>
+                            <Thumb Style="{StaticResource SliderThumbStyle}"/>
+                        </Track.Thumb>
+                        <Track.IncreaseRepeatButton>
+                            <RepeatButton Style="{StaticResource RepeatButtonTransparent}" Command="{x:Static Slider.IncreaseLarge}" />
+                        </Track.IncreaseRepeatButton>
+                    </Track>
+                </Grid>
+            </ControlTemplate>
+        </Slider.Template>
+    </Slider>
+    <TextBlock Grid.Row="0" Name="PriceSelect" Text="{Binding SelectedRAM}" Foreground="#FFFFFF" FontSize="16" FontFamily="Fonts/#Montserrat" Margin="120,150,0,0"  />
+    <TextBlock Grid.Row="0" Margin="150,60,0,60" Text="Оперативная память" Foreground="White" FontSize="25" FontFamily="Fonts/#Montserrat"/>
+    <TextBlock Grid.Row="0" Text="16384" Foreground="#858585" FontSize="16" FontFamily="Fonts/#Montserrat" Margin="0,150,100,0" HorizontalAlignment="Right" />
+    
+                </Grid>
+                
+                <Button Grid.Row="3" Content="Сохранить настройки" Click="LauncherShowButton_Click" Command="{Binding SaveSettingsCommand}" Style="{StaticResource GameButtonStyle}" Margin="100,0,100,300"/>
+
+            </Grid>
+            
+
+        </Grid>
+        
+        
+    </Grid>
+</Page>
